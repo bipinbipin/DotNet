@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site2Column.master.cs" Inherits="AstonTech.AstonEngineer.Web.MasterPages.Site2Column" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="Header">
+            <img src="../Images/logo.jpg" />
+        </div>
+        <div id="Container">
+            <div id="NavigationContainer">
+                <div id="NavigationContainerContent">Left Navigation Placeholder</div>
+            </div>
+            <div id="BodyContainer">
+                <div id="BodyContainerContent">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="Footer">
+        <div>Copyright 2015 Aston Technologies</div>
+    </div>
+    </form>
+</body>
+</html>

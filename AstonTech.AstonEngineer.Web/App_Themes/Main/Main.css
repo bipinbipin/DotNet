@@ -1,0 +1,243 @@
+﻿html{
+    font-family:'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+    font-size:12px;
+    color: #4d4d4d;
+}
+
+body {
+    width:980px;
+
+    margin-top:0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#Header,
+#Footer{
+    background-image:url('Images/header-background.png');
+    background-repeat:repeat-x;
+    width:100%;
+}
+#Header{
+    height:117px;
+}
+#Footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    
+    height:35px;
+    line-height:35px;
+    text-align:center;
+
+    color:#d6d6d6;
+    border-top: 1px solid #ACB2B8;
+}
+#Container{
+    background-color:#f0f1f2;
+}
+#BodyContainer{
+    margin-left:210px;
+    background-color:#f1f1f1;
+}
+#BodyContainerContent,
+#NavigationContainerContent{
+    padding:10px;
+}
+#NavigationContainer {
+    width:231px;
+    float:left;
+}
+
+#NavigationContainerContent ul{
+    margin:0;
+    padding-left:5px;
+    padding-top:45px;
+}
+#NavigationContainerContent li{
+    list-style-type:none;
+    padding:8px;
+}
+#NavigationContainerContent li.Selected{
+    border-top:solid 1px #ccc;
+    border-left:solid 1px #ccc;
+    border-bottom:solid 1px #ccc;
+    background-color:white;
+
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px 0px;
+
+    -webkit-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+}
+#NavigationContainerContent a {
+    text-decoration:none;
+    color:#666666;
+}
+#NavigationContainerContent a:hover {
+    color:#272727;
+}
+#EmployeeContainer,
+#GenericContainer {
+    padding:20px;
+    background-color:#fff;
+    min-height:200px;
+}
+#EmployeeContainer table,
+#GenericContainer table{
+    width:100%;
+}
+#EmployeeContainer table label,
+#GenericContainer table label{
+    float:right;
+    padding-right:10px;
+}
+
+#EmployeeContainer,
+#GenericContainer,
+#Container,
+.PageMessage,
+.BorderRadius,
+.BorderRadiusAll,
+.BorderRadiusBottom,
+.BorderRadiusTop{
+    border: 1px solid #cccccc;
+
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 2px 0px;
+}
+.BorderRadiusAll{
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+}
+#EmployeeContainer,
+#GenericContainer,
+#Container,
+.BorderRadiusBottom{
+    -webkit-border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
+}
+#Footer,
+.BorderRadiusTop{
+    -webkit-border-radius: 4px 4px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.FormTable td{
+    height:30px;
+}
+.LineHeightMid{
+    line-height:28px;
+}
+.HeaderText{
+    font-weight:bold;
+    font-size:13px;
+}
+.SmallText{
+    font-size:10px;
+}
+.SmallPadding{
+    padding:4px;
+}
+.FloatLeft{
+    float:left;
+}
+.FloatRight{
+    float:right;
+}
+.BoldText{
+    font-weight:bold;
+}
+.ContainerBar {
+    background: #f4f3f1;
+    border-bottom: 1px solid #e6e3e1;
+    border-top: 1px solid #e6e3e1;
+    line-height: 16px;
+    margin: 15px -20px 0;
+    overflow: hidden;
+    padding: 12px 20px;
+}
+
+
+.EmployeeNavigationContainer,
+.GenericNavigationContainer{
+    background: -webkit-linear-gradient(top, #e6e6e8, #d6d6d6);
+    padding:10px;
+    height:20px;
+}
+.EmployeeNavigationContainer ul,
+.GenericNavigationContainer ul{
+    margin:0;
+    text-align:center;
+}
+.EmployeeNavigationContainer li,
+.GenericNavigationContainer li{
+    color: #808080;
+
+    display:inline;
+    padding:8px;
+}
+.EmployeeNavigationContainer a,
+.GenericNavigationContainer a {
+    color:#666666;
+}
+
+.SectionMessageArea{
+    float:right;
+    border-left:solid 1px #ccc;
+    border-top:solid 1px #ccc;
+    border-bottom:solid 1px #ccc;
+    background: -webkit-linear-gradient(top, #f1f1f1, #d6d6d6);
+    margin: 0px -20px 0;
+    overflow: hidden;
+    padding:6px;
+
+    -webkit-border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0px 0px 4px;
+}
+.Required{
+    color:#990000;
+    font-weight:bold;
+}
+.PageMessage{
+    background-color:#990000;
+    font-weight:bold;
+    font-size:12px;
+    padding:10px;
+    margin-bottom:10px;
+}
+.PageMessage span,
+.PageMessage li{
+    color:#f1f1f1;
+}
+
+.ListStyle{
+    border:solid 1px #d6d6d6;
+
+    border-spacing:0px;
+    border-collapse:separate;
+}
+.ListStyle th{
+    border-left:solid 1px #d6d6d6;
+    border-right:solid 1px #d6d6d6;
+    border-bottom:solid 1px #d6d6d6;
+    padding:5px;
+    background: -webkit-linear-gradient(top, #f1f1f1, #d6d6d6);
+}
+.ListStyle td{
+    padding:5px;
+}
+.ListStyleAlternate {
+    background: #f4f3f1;
+    border-bottom: 1px solid #e6e3e1;
+    border-top: 1px solid #e6e3e1;
+}
+.CenterText{
+    text-align:center;
+}
+
+.BaseTable td{
+    padding:4px;
+}
