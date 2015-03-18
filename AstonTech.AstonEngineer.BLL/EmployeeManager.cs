@@ -23,7 +23,6 @@ namespace AstonTech.AstonEngineer
 
         #endregion 
 
-
         #region SAVE
         public static int Save(Employee employeeToSave)
         {
@@ -35,6 +34,20 @@ namespace AstonTech.AstonEngineer
             return EmployeeDAL.Save(employeeToSave);
         }
 
+        #endregion
+
+        #region DELETE
+        public static bool Delete(int personId, int employeeId)
+        {
+            //notes:    make sure the person delete is successful before deleting employee
+            if (EmployeeDAL.Delete(employeeId))
+            {
+                //notes:    call employee DAL to delete employee
+                return PersonManager.Delete(personId);
+            }
+            else
+                return false;
+        }
         #endregion
 
         #region PRIVATE METHODS

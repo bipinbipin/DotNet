@@ -8,6 +8,7 @@ namespace AstonTech.AstonEngineer
 {
     public static class PersonManager
     {
+        #region SAVE
         public static int Save(Person personToSave)
         {
             int returnValue;
@@ -15,5 +16,14 @@ namespace AstonTech.AstonEngineer
 
             return returnValue;
         }
+        #endregion
+
+        #region DELETE
+        public static bool Delete(int personId)
+        {
+            //notes:    call DAL to delete person record
+            return PersonDAL.Delete(personId);
+        }
+        #endregion
     }
 }

@@ -63,5 +63,30 @@ namespace AstonTech.AstonEngineer
         }
 
         #endregion
+
+        #region DELETE
+
+        public static bool Delete(int personId)
+        {
+            int result = 0;
+
+            using (SqlConnection myConnection = new SqlConnection(AppConfiguration.ConnectionString))
+            {
+                using (SqlCommand myCommand = new SqlCommand("usp_ExecutePerson", myConnection))
+                {
+                    myCommand.CommandType = CommandType.StoredProcedure;
+
+                    myCommand.Parameters.AddWithValue("@QueryId", ExecuteTypeEnum.DeleteItem);
+                    myCommand.Parameters.AddWithValue("@PersonId", personId);
+
+                    myConnection.Open();
+                    result = myCommand.ExecuteNonQuery();
+                }
+                myConnection.Close();
+            }
+            return result > 0;
+        }
+
+        #endregion
     }
 }

@@ -161,6 +161,9 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
                     {
                         //notes:    first change the text of the button to indicate that we're updating
                         SaveButton.Text = "Save Changes";
+                        
+                        //notes:    display delete button
+                        DeleteButton.Visible = true;
 
                         //notes:    set hidding form values for PersonId and EmployeeId
                         PersonId.Value = employeeToUpdate.PersonId.ToString();
@@ -272,6 +275,26 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
         protected void Save_Click(object sender, EventArgs e)
         {
             this.ProcessForm();
+        }
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            int personId = PersonId.Value.ToInt();
+            int employeeId = EmployeeId.Value.ToInt();
+
+            if (personId > 0 && employeeId > 0)
+            {
+                //notes:    call middle tier to delete employee record
+                if(EmployeeManager.Delete(personId,employeeId))
+                {
+                    //notes:    redirect to the basic page
+                    Response.Redirect("EmployeeBasic.aspx");
+                }
+                else
+                {
+                    //notes:    display a friendly error message
+                    base.DisplayPageMessage(PageMessage, "Delete failed.");
+                }
+            }
         }
 
         #endregion 

@@ -67,6 +67,13 @@
             <br />
             <div class="ContainerBar">
                 <asp:Button runat="server" Text="Add Employee" ID="SaveButton" OnClick="Save_Click"/>
+                <span class="FloatRight">
+                    <asp:Button runat="server" 
+                                id="DeleteButton"
+                                Text="Delete"
+                                OnClick="Delete_Click"
+                                Visible="false" />
+                </span>
                 <asp:HiddenField runat="server" ID="PersonId" Value="0"/>
                 <asp:HiddenField runat="server" ID="EmployeeId" Value="0"/>
             </div>
