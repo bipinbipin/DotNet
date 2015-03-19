@@ -20,7 +20,7 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _employeeId = base.GetQueryStringNumber("EmployeeId");
+            _employeeId = base.EmployeeId;
             
             this.BindEmployeeNavigation();
             

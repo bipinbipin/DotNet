@@ -151,7 +151,7 @@ namespace AstonTech.AstonEngineer
                     myCommand.CommandType = CommandType.StoredProcedure;
 
                     myCommand.Parameters.AddWithValue("@QueryId", ExecuteTypeEnum.DeleteItem);
-                    myCommand.Parameters.AddWithValue("@PersonId", employeeId);
+                    myCommand.Parameters.AddWithValue("@EmployeeId", employeeId);
 
                     myConnection.Open();
                     result = myCommand.ExecuteNonQuery();

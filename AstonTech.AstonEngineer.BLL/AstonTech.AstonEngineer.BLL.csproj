@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailAddressManager.cs" />
     <Compile Include="EmployeeManager.cs" />
     <Compile Include="EntityTypeManager.cs" />
     <Compile Include="PersonManager.cs" />

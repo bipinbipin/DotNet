@@ -8,13 +8,17 @@ namespace AstonTech.AstonEngineer
 {
     public class EmailAddress : BaseBO
     {
-        #region
+        #region CONSTRUCTORS
 
         public EmailAddress()
         {
             this.EmailType = new EntityType();
         }
-
+        public EmailAddress(int entityTypeId, string emailAddress)
+        {
+            this.EmailType = new EntityType { EntityTypeId = entityTypeId };
+            this.EmailValue = emailAddress;
+        }
 
 
         #endregion

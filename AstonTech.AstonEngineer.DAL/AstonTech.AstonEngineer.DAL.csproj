@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfiguration.cs" />
+    <Compile Include="EmailAddressDAL.cs" />
     <Compile Include="EmployeeDAL.cs" />
     <Compile Include="EntityTypeDAL.cs" />
     <Compile Include="HelperDAL.cs" />

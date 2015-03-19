@@ -8,6 +8,19 @@ namespace AstonTech.AstonEngineer.Web
 {
     public class BasePage : System.Web.UI.Page
     {
+
+        #region PROPERTIES
+        /// <summary>
+        /// Gets Id from EmployeeId QueryString. If not found, returns 0
+        /// </summary>
+        public int EmployeeId
+        {
+            get
+            {
+                return this.GetQueryStringNumber("EmployeeId");
+            }
+        }
+        #endregion
         /// <summary>
         /// Attempt to retrieve a numeric value from the querystring.
         /// if invalid querystring name or value is not an integer, return 0.

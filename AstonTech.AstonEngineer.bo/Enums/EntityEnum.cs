@@ -11,6 +11,10 @@
         /// </summary>
         None,
         /// <summary>
+        /// Email entity
+        /// </summary>
+        Email,
+        /// <summary>
         /// Category such as Internal, Trainee, etc.
         /// </summary>
         EmployeeCategory,

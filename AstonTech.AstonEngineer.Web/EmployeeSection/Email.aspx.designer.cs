@@ -13,6 +13,15 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection {
     public partial class Email {
         
         /// <summary>
+        /// EmailId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField EmailId;
+        
+        /// <summary>
         /// CustomEmployeeNavigation control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,32 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AstonTech.AstonEngineer.Web.UserControls.EmployeeNavigationControl CustomEmployeeNavigation;
+        
+        /// <summary>
+        /// EmailAddressField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailAddressField;
+        
+        /// <summary>
+        /// EmailTypeList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EmailTypeList;
+        
+        /// <summary>
+        /// SaveButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveButton;
     }
 }
