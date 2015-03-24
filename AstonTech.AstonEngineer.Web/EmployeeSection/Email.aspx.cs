@@ -23,6 +23,7 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
             {
                 this.BindEmployeeNavigation();
                 this.BindEmailType();
+                this.BindEmailList();
             }
         }
 
@@ -46,7 +47,19 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
 
             EmailTypeList.Items.Insert(0, new ListItem("(Select Email Type)", "0"));
         }
+        private void BindEmailList()
+        {
+            EmailAddressCollection emailList = EmailAddressManager.GetCollection(base.EmployeeId);
 
+            EmailList.DataSource = emailList;
+            EmailList.DataBind();
+
+
+        }
+        private void BindUpdateInfo()
+        {
+            //notes:    placeholder to update email forrm since user clicked Edit button
+        }
         #endregion
 
         private void ProcessEmail()
@@ -57,7 +70,10 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
             EmailAddressManager.Save(base.EmployeeId, emailToSave);
 
             Response.Redirect("Email.aspx?EmployeeId=" + base.EmployeeId.ToString());
-
+        }
+        private void DeleteEmail()
+        {
+            //notes:    placeholder for delete since user clicked the Delete button
         }
 
         #region EVENT HANDLERS
@@ -65,7 +81,33 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
         {
             this.ProcessEmail();
         }
+        protected void EmailButton_Command(object sender, CommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Edit":
+                    this.BindUpdateInfo();
+                    break;
 
+                case "Delete":
+                    this.DeleteEmail();
+                    break;
+            }
+        }
+        protected void EmailList_OnItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                EmailAddress emailAddress = (EmailAddress)e.Item.DataItem;
+
+                LinkButton editButton = (LinkButton)e.Item.FindControl("EditButton");
+                LinkButton deleteButton = (LinkButton)e.Item.FindControl("DeleteButton");
+
+                //notes:    set teh value of the command  argument
+                editButton.CommandArgument = emailAddress.EmailId.ToString();
+                deleteButton.CommandArgument = emailAddress.EmailId.ToString();
+            }
+        }
 
         #endregion
     }

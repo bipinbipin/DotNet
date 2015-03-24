@@ -21,6 +21,40 @@
         <div class="ContainerBar">
             <asp:Button runat="server" Text="Add Email" ID="SaveButton" OnClick="Save_Click" />
         </div>
+        <br />
+        <asp:Repeater runat="server" ID="EmailList" OnItemDataBound="EmailList_OnItemDataBound">
+            <HeaderTemplate>
+                <table class="ListStyle BorderRadiusAll" width="100%">
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Email Address</th>
+                        <th>Email Type</th>
+                    </tr>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <tr>
+                    <td class="CenterText">
+                        <asp:LinkButton runat="server" ID="EditButton" Text="Edit" CssClass="Button ButtonRoundedLeft" OnCommand="EmailButton_Command" CommandName="Edit">
+                        </asp:LinkButton><asp:LinkButton runat="server" ID="DeleteButton" Text="Delete" CssClass="Button ButtonRoundedRight" OnCommand="EmailButton_Command" CommandName="Delete" />
+                    </td>
+                    <td class="CenterText"><%#Eval("EmailValue") %></td>
+                    <td class="CenterText"><%#Eval("EmailType.EntityTypeValue") %></td>
+                </tr>
+            </ItemTemplate>
+            <AlternatingItemTemplate>
+                <tr>
+                    <td class="ListStyleAlternate CenterText">
+                        <asp:LinkButton runat="server" ID="EditButton" Text="Edit" CssClass="Button ButtonRoundedLeft" OnCommand="EmailButton_Command" CommandName="Edit">
+                        </asp:LinkButton><asp:LinkButton runat="server" ID="DeleteButton" Text="Delete" CssClass="Button ButtonRoundedRight" OnCommand="EmailButton_Command" CommandName="Delete" />
+                    </td>
+                    <td class="ListStyleAlternate CenterText"><%#Eval("EmailValue") %></td>
+                    <td class="ListStyleAlternate CenterText"><%#Eval("EmailType.EntityTypeValue") %></td>
+                </tr>
+            </AlternatingItemTemplate>
+            <FooterTemplate>
+                </table>
+            </FooterTemplate>
+        </asp:Repeater>
 
     </div>
 </asp:Content>
