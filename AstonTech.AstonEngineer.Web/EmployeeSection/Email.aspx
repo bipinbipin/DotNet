@@ -8,6 +8,7 @@
     <asp:HiddenField runat="server" ID="EmailId" Value="0" />
     <CustomAstonEngineer:EmployeeNavigation runat="server" ID="CustomEmployeeNavigation" />
     <div id="EmployeeContainer">
+        <div class="PageMessage"><asp:Label runat="server" ID="PageMessage" /></div>
         <table>
             <tr>
                 <td><label>Eamil Address:</label></td>

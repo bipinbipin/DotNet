@@ -37,7 +37,6 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
             //notes:    get the employeeID from the query string
             CustomEmployeeNavigation.EmployeeId = _employeeId;
         }
-
         private void BindEmailType()
         {
             EntityTypeCollection emailCollection = EntityTypeManager.GetCollection(EntityEnum.Email);
@@ -53,12 +52,30 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
 
             EmailList.DataSource = emailList;
             EmailList.DataBind();
-
-
         }
-        private void BindUpdateInfo()
+        private void BindUpdateInfo(int emailId)
         {
-            //notes:    placeholder to update email forrm since user clicked Edit button
+            //notes:    get a single item from the database
+            EmailAddress emailAddress = EmailAddressManager.GetItem(emailId);
+
+            if (emailAddress != null)
+            {
+                //notes:    set hidden field so page knows to update
+                EmailId.Value = emailAddress.EmailId.ToString();
+
+                //notes:    set textbox for email address
+                if (emailAddress.EmailValue != null)
+                    EmailAddressField.Text = emailAddress.EmailValue;
+
+                //notes:    select item from drop-down
+                if (emailAddress.EmailType != null)
+                    EmailTypeList.SelectedValue = emailAddress.EmailType.EntityTypeId.ToString();
+
+                //notes:    set the display text of the button to indicate its an UPDATE
+                SaveButton.Text = "Save Email";
+            }
+            else
+                base.DisplayPageMessage(PageMessage, "Email Address could not be retrieved. Contact an Administrator.");
         }
         #endregion
 
@@ -66,14 +83,27 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
         {
             EmailAddress emailToSave = new EmailAddress(EmailTypeList.SelectedItem.Value.ToInt(), EmailAddressField.Text);
 
+            //notes:    set emailId for updates
+            emailToSave.EmailId = EmailId.Value.ToInt();
+
             //notes:    call middle tier to save
             EmailAddressManager.Save(base.EmployeeId, emailToSave);
 
             Response.Redirect("Email.aspx?EmployeeId=" + base.EmployeeId.ToString());
         }
-        private void DeleteEmail()
+        private void DeleteEmail(int emailId)
         {
-            //notes:    placeholder for delete since user clicked the Delete button
+            //notes:    pass emailId to delete item from database
+            if (EmailAddressManager.Delete(emailId))
+            {
+                //notes:    redirect back to same page to clear deleted email.
+                Response.Redirect("Email.aspx?EmployeeId=" + base.EmployeeId.ToString());
+            }
+            else
+            {
+                //notes:    display message to user.
+                base.DisplayPageMessage(PageMessage, "Email Address could not be deleted. Contact an Administrator.");
+            }
         }
 
         #region EVENT HANDLERS
@@ -86,11 +116,11 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
             switch (e.CommandName)
             {
                 case "Edit":
-                    this.BindUpdateInfo();
+                    this.BindUpdateInfo(e.CommandArgument.ToString().ToInt());
                     break;
 
                 case "Delete":
-                    this.DeleteEmail();
+                    this.DeleteEmail(e.CommandArgument.ToString().ToInt());
                     break;
             }
         }
@@ -103,7 +133,7 @@ namespace AstonTech.AstonEngineer.Web.EmployeeSection
                 LinkButton editButton = (LinkButton)e.Item.FindControl("EditButton");
                 LinkButton deleteButton = (LinkButton)e.Item.FindControl("DeleteButton");
 
-                //notes:    set teh value of the command  argument
+                //notes:    set the value of the command  argument
                 editButton.CommandArgument = emailAddress.EmailId.ToString();
                 deleteButton.CommandArgument = emailAddress.EmailId.ToString();
             }
