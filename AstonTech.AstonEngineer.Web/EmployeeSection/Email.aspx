@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript" src="../Scripts/Email.js"></script>
     <asp:HiddenField runat="server" ID="EmailId" Value="0" />
     <CustomAstonEngineer:EmployeeNavigation runat="server" ID="CustomEmployeeNavigation" />
     <div id="EmployeeContainer">
@@ -12,15 +13,15 @@
         <table>
             <tr>
                 <td><label>Eamil Address:</label></td>
-                <td><asp:TextBox runat="server" ID="EmailAddressField" MaxLength="50" /></td>
+                <td><asp:TextBox runat="server" ID="EmailAddressField" MaxLength="50" CssClass="EmailAddressField"/></td>
             </tr>
             <tr>
                 <td><label>Email Type:</label></td>
-                <td><asp:DropDownList runat="server" ID="EmailTypeList" DataTextField="EntityTypeValue" DataValueField="EntityTypeId"/></td>
+                <td><asp:DropDownList runat="server" ID="EmailTypeList" DataTextField="EntityTypeValue" DataValueField="EntityTypeId" CssClass="EmailTypeField"/></td>
             </tr>
         </table>
         <div class="ContainerBar">
-            <asp:Button runat="server" Text="Add Email" ID="SaveButton" OnClick="Save_Click" />
+            <asp:Button runat="server" Text="Add Email" ID="SaveButton" OnClick="Save_Click" OnClientClick="return ValidateClientForm()" />
         </div>
         <br />
         <asp:Repeater runat="server" ID="EmailList" OnItemDataBound="EmailList_OnItemDataBound">

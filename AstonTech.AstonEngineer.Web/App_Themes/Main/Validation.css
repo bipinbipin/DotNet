@@ -1,0 +1,38 @@
+﻿.ValidationBox {
+    display:none;
+    background-color:#EDEDED;
+    border:1px solid #666666;
+    position:relative;
+    padding:5px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+
+    -moz-box-shadow:0 0 5px #888888;
+    -webkit-box-shadow:0 0 5px #888888;
+    float:left;
+    margin-left:8px;
+}
+
+.ValidationBoxArrowBorder,
+.ValidationBoxArrow{
+    border-style: solid;
+    height:0;
+    width:0;
+    position:absolute;
+}
+.ValidationBoxArrowBorder {
+    border-color: transparent #666666 transparent transparent;
+    border-width: 7px;
+    top:5px;
+    left:-15px;
+}
+.ValidationBoxArrow {
+    border-color: transparent #EDEDED transparent transparent;
+    border-width: 6px;
+    top:6px;
+    left:-12px;
+}
+.ValidationContent{
+    color:#990000;
+}
